@@ -210,6 +210,11 @@ func (r *Row) AddCell() *Cell {
 	return &cell
 }
 
+// GetCT returns a pointer to the underlying Row Complex Type.
+func (r *Row) GetCT() *ctypes.Row {
+	return &r.ct
+}
+
 // Cell Wrapper
 type Cell struct {
 	// Reverse inheriting the Rootdoc into paragraph to access other elements
@@ -300,4 +305,9 @@ func (c *Cell) Borders(top *ctypes.Border, left *ctypes.Border, bottom *ctypes.B
 		TR2BL:   tr2bl,
 	}
 	return c
+}
+
+// GetCT returns a pointer to the underlying Row Complex Type.
+func (c *Cell) GetCT() *ctypes.Cell {
+	return &c.ct
 }
